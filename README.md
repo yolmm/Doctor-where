@@ -7,8 +7,8 @@
 1. [Context and instructions](#3context-and-instructions)
 1. [Packages and dependencies](#4packages-and-dependencies)
 1. [Structure](#5structure)
-    1. [Images and videos](#images-and-videos)
-    1. [Code examples](#code-examples)
+    - [Images and videos](#images-and-videos)
+    - [Code examples](#code-examples)
 1. [Documentation](#6documentation)
 1. [License](#7license)
 
@@ -20,19 +20,19 @@ You can play it [here](https://yolmm.github.io/Doctor-where/).
 
 ## 2. Installation manual
 
-```js
-//Clone the repository:
+```bash
+#Clone the repository:
 git clone https://yolmm.github.io/Doctor-where/
 
-//Initiate npm:
+#Initiate npm:
 npm init
-//Or using this instead:
+#Or use this instead:
 npm init -y
 
-//Install dependencies:
+#Install dependencies:
 npm install
 
-//Execute the project:
+#Execute the project:
 npm run dev
 ```
 
@@ -48,7 +48,10 @@ It looks like the Doctor is in the middle of a labyrinth and the TARDIS is outsi
 
 ## 4. Packages and dependencies
 
-
+- Node package manager: [npm](https://www.npmjs.com/)
+- To run the HTML: [parcel](https://www.npmjs.com/package/parcel)
+- To run the HTML while working on the project: [ts-node-dev](https://www.npmjs.com/package/ts-node-dev)
+- Language used [typescript](https://www.npmjs.com/package/typescript)
 
 ## 5. Structure
 
