@@ -1,0 +1,27 @@
+{
+  "name": "proyecto1",
+  "version": "1.0.0",
+  "description": "## Table of contents",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YolMM/Doctor-where.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YolMM/Doctor-where/issues"
+  },
+  "homepage": "https://github.com/YolMM/Doctor-where#readme",
+  "dependencies": {
+    "parcel": "^2.0.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.4"
+  }
+}
