@@ -63,6 +63,6 @@ It looks like the Doctor is in the middle of a labyrinth and the TARDIS is outsi
 
 Doctor Who [info](https://en.wikipedia.org/wiki/Doctor_Who)
 
-To create the main characters: [spritesheet generator](https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/#?body=Humanlike_white)
+To create the main characters: [sprite sheet generator](https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/#?body=Humanlike_white)
 
 ## 7. License
