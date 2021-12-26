@@ -1,24 +1,36 @@
 # DOCTOR WHERE
 
-## Table of contents
+![alt text](public/img/maze.jpg)
 
-1. [Introduction](#1direct-access)
-1. [Installation manual](#2installation-manual)
-1. [Context and instructions](#3context-and-instructions)
-1. [Packages and dependencies](#4packages-and-dependencies)
-1. [Structure](#5structure)
-    - [Images and videos](#images-and-videos)
-    - [Code examples](#code-examples)
-1. [Documentation](#6documentation)
-1. [License](#7license)
+##  <a name='Tableofcontents'></a>Table of contents
 
-## 1. Introduction
+<!-- vscode-markdown-toc -->
+ 1. [ Introduction](#Introduction)
+ 2. [ Installation manual fd](#Installationmanualfd)
+ 3. [ Context and instructions](#Contextandinstructions)
+ 4. [ Packages and dependencies](#Packagesanddependencies)
+ 5. [ Structure](#Structure)
+
+	 5.1. [Images and videos](#Imagesandvideos)
+
+	 5.2. [Code examples](#Codeexamples)
+ 6. [ Documentation](#Documentation)
+ 7. [ License](#License)
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+
+##  1. <a name='Introduction'></a> Introduction
 
 This is my first project for [CORE Code School](https://www.corecode.school/).
 
 You can play it [here](https://yolmm.github.io/Doctor-where/).
 
-## 2. Installation manual
+##  2. <a name='Installationmanualfd'></a> Installation manual
 
 ```bash
 #Clone the repository:
@@ -36,7 +48,7 @@ npm install
 npm run dev
 ```
 
-## 3. Context and instructions
+##  3. <a name='Contextandinstructions'></a> Context and instructions
 
 "People assume that time is a strict progression of cause to effect, but actually from a non-linear non-subjective viewpoint it's more like a big ball of wibbly wobbly timey wimey [stuff](https://youtu.be/cwdbLu_x0gY)."
 
@@ -46,23 +58,23 @@ It looks like the Doctor is in the middle of a labyrinth and the TARDIS is outsi
 
 "Don't turn your back, don't look away, and don't blink. Good luck."
 
-## 4. Packages and dependencies
+##  4. <a name='Packagesanddependencies'></a> Packages and dependencies
 
 - Node package manager: [npm](https://www.npmjs.com/)
 - To run the HTML: [parcel](https://www.npmjs.com/package/parcel)
 - To run the HTML while working on the project: [ts-node-dev](https://www.npmjs.com/package/ts-node-dev)
 - Language used [typescript](https://www.npmjs.com/package/typescript)
 
-## 5. Structure
+##  5. <a name='Structure'></a> Structure
 
-### Images and videos
+###  5.1. <a name='Imagesandvideos'></a>Images and videos
 
-### Code examples
+###  5.2. <a name='Codeexamples'></a>Code examples
 
-## 6. Documentation
+##  6. <a name='Documentation'></a> Documentation
 
 Doctor Who [info](https://en.wikipedia.org/wiki/Doctor_Who)
 
 To create the main characters: [sprite sheet generator](https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/#?body=Humanlike_white)
 
-## 7. License
+##  7. <a name='License'></a> License
