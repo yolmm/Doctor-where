@@ -10,4 +10,11 @@ window.onload = () => {
     let actors: Array<IActor> = [doctor];
 
     actors.forEach( (e) => e.draw(ctx));
+
+    document.body.addEventListener("keydown", (e) => {
+        doctor.keyboard_event(e.key);
+        ctx.clearRect(0, 0, 1020, 1024);
+        ctx.beginPath();
+        ctx.fillRect(doctor.docSpeed.x, doctor.docSpeed.y, doctor.docSize, doctor.docSize);
+    })
 }
