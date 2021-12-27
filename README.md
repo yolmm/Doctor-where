@@ -77,4 +77,6 @@ Doctor Who [info](https://en.wikipedia.org/wiki/Doctor_Who)
 
 To create the main characters: [sprite sheet generator](https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/#?body=Humanlike_white)
 
+[Canvas docs](https://developer.mozilla.org/es/docs/Web/API/CanvasRenderingContext2D)
+
 ##  7. <a name='License'></a> License
