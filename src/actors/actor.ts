@@ -1,6 +1,5 @@
 export interface IActor {
 	position: {x: number, y: number};
-	initialize?: () => void;
 	keyboard_event_down?: (key: string) => void;
 	keyboard_event_up?: (key: string) => void;
 	draw: (ctx: CanvasRenderingContext2D) => void;

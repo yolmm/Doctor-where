@@ -23,6 +23,8 @@ export class Doctor extends Actor implements IActor{
         this.docSize = 40;
         this.maxSpeed = 0;
         this.docSpeed = { x: this.origin.x, y: this.origin.y };
+        this.doctorImg = new Image();
+        this.doctorImg.src = doctorSprites;
     }
 
     keyboard_event(key) {
@@ -42,16 +44,12 @@ export class Doctor extends Actor implements IActor{
         }
     }
 
-    initialize () {
-        this.doctorImg = new Image();
-        this.doctorImg.src = doctorSprites;
-    }
-
     draw(ctx: CanvasRenderingContext2D) {
 		let origin = this.origin;
 		let docSize = this.docSize;
+        let docImg = this.doctorImg;
         ctx.fillStyle = "blue";
         ctx.fillRect(origin.x, origin.y, docSize, docSize);
-        ctx.drawImage(this.doctorImg, origin.x, origin.y, docSize, docSize, 2, 27, 8, 10);
+        ctx.drawImage(docImg, origin.x, origin.y, docSize, docSize, 2, 27, 8, 10);
     }
 }
