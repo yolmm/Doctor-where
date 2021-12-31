@@ -1,5 +1,7 @@
 import { Actor, IActor } from "./actor";
-import doctorSprites from "../../public/img/doctor_sprites.png";
+//import doctorSprites from "../../public/img/doctor_sprites.png";
+import { Map } from "./map";
+import { skipPartiallyEmittedExpressions } from "typescript";
 
 type docSpeed = {
     x: number,
@@ -14,32 +16,53 @@ type position = {
 export class Doctor extends Actor implements IActor{
     origin: {x: number, y: number};
     docSize: number;
-	maxSpeed: number;
-    docSpeed: {x: number, y: number};
+    docPosition: {x: number, y: number};
     doctorImg: HTMLImageElement;
     constructor(initPosition: {x: number, y: number}) {
         super(initPosition = { x: 0, y: 0 });
-        this.origin = {x: 20, y: 20};
+        this.origin = {x: 0, y: 40};
         this.docSize = 40;
-        this.maxSpeed = 0;
-        this.docSpeed = { x: this.origin.x, y: this.origin.y };
+        this.docPosition = { x: this.origin.x, y: this.origin.y };
         this.doctorImg = new Image();
-        this.doctorImg.src = doctorSprites;
+        //this.doctorImg.src = doctorSprites;
     }
 
     keyboard_event(key) {
+        let map = new Map ({x: 130, y: 130});
+        let newDocPosition: {x: number, y: number};
+        let a: number, b: number;
         switch (key) {
             case `ArrowRight`:
-                this.docSpeed.x += 1.5;
+                newDocPosition = { x: (this.docPosition.x + this.docSize), y: this.docPosition.y };
+                a = newDocPosition.x/this.docSize;
+                b = newDocPosition.y/this.docSize;
+                if (!map.isCollision(a, b)) {
+                    this.docPosition.x += this.docSize;
+                }
                 break;
             case `ArrowLeft`:
-                this.docSpeed.x -= 1.5;
-                break;
-            case `ArrowUp`:
-                this.docSpeed.y -= 1.5;
+                newDocPosition = { x: (this.docPosition.x - this.docSize), y: this.docPosition.y };
+                a = newDocPosition.x/this.docSize;
+                b = newDocPosition.y/this.docSize;
+                if (!map.isCollision(a, b)) {
+                    this.docPosition.x -= this.docSize;
+                }
                 break;
             case `ArrowDown`:
-                this.docSpeed.y += 1.5;
+                newDocPosition = { x: this.docPosition.x, y: (this.docPosition.y + this.docSize) };
+                a = newDocPosition.x/this.docSize;
+                b = newDocPosition.y/this.docSize;
+                if (!map.isCollision(a, b)) {
+                    this.docPosition.y += this.docSize;
+                }
+                break;
+            case `ArrowUp`:
+                newDocPosition = { x: this.docPosition.x, y: (this.docPosition.y - this.docSize) };
+                a = newDocPosition.x/this.docSize;
+                b = newDocPosition.y/this.docSize;
+                if (!map.isCollision(a, b)) {
+                    this.docPosition.y -= this.docSize;
+                }
                 break;
         }
     }
@@ -47,9 +70,9 @@ export class Doctor extends Actor implements IActor{
     draw(ctx: CanvasRenderingContext2D) {
 		let origin = this.origin;
 		let docSize = this.docSize;
-        let docImg = this.doctorImg;
+        //let docImg = this.doctorImg;
         ctx.fillStyle = "blue";
         ctx.fillRect(origin.x, origin.y, docSize, docSize);
-        ctx.drawImage(docImg, origin.x, origin.y, docSize, docSize, 2, 27, 8, 10);
+        //ctx.drawImage(docImg, origin.x, origin.y, docSize, docSize, 2, 27, 8, 10);
     }
 }
