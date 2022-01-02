@@ -1,9 +1,32 @@
 import { Actor } from "./actor";
 
 let labyrinth = `
-WWWWWWWWWWWW
-pppppppppppp
-WWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWW
+W......W.............W.W.W
+W.W.WWWWWWWWWWWW.WWW.W.W.W
+W.W..W...W....W....W.W.W.W
+WWW.WW.W.W.W.WWW.W.W.W...W
+W.W....WWWWW...W.W.W.W.W.W
+W.W.W....W....WW.W.W...W.W
+W...WWWW...WW.W..W.WWW.W.W
+W.W.W..WWWW.WWWW.W...W.W.W
+W.W...W...W......W.WWW.WWW
+W.WWW.W.WWW.W.W.WW.W....WW
+W...WWW...W.WWW.W..WWWW.WW
+WW.WW.WWW...W...WW.W..W.WW
+WW..W...WWWWWW...WWWW.W..W
+WW.WW.WWW...W..W....W.WW.W
+W...W.....WWWWWWWWW.W....W
+W.W.WW.WW...W.......WW.WWW
+W.W.....WWW.W.WWWWWWW....W
+WWWW.WW...W.W..W......WW.W
+W.....W.W.WWWW.W.WWWW..W.W
+W.W.W.W.W......W....WWWW.W
+W.W.W.W.WWWWWWWWWWW...W..W
+W.W.W...W......W..W.W.WWWW
+W.W.WWWWW.WWWWWW.WW.W.WTTW
+W.W..............W..W..TTW
+WWWWWWWWWWWWWWWWWWWWWWWWWW
 `;
 
 export class Map extends Actor {
@@ -23,7 +46,7 @@ export class Map extends Actor {
         };
         this.origin = {x: 0, y: 0};
         this.coords;
-        this.matrix = labyrinth.match(/.{1,12}/g).map((e) => e.split(""));
+        this.matrix = labyrinth.match(/.{1,26}/g).map((e) => e.split(""));
     }
 
     draw(ctx: CanvasRenderingContext2D) {
@@ -38,9 +61,14 @@ export class Map extends Actor {
                         ctx.fillStyle = "red";
                         ctx.fillRect(this.coords.x, this.coords.y, this.blockSize, this.blockSize);
                         break;
-                    case "p": //path
+                    case ".": //path
                         ctx.strokeStyle = "green";
                         ctx.fillStyle = "green";
+                        ctx.fillRect(x*this.blockSize, y*this.blockSize, this.blockSize, this.blockSize);
+                        break;
+                    case "T": //TARDIS
+                        ctx.strokeStyle = "blue";
+                        ctx.fillStyle = "blue";
                         ctx.fillRect(x*this.blockSize, y*this.blockSize, this.blockSize, this.blockSize);
                         break;
                 }

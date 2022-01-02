@@ -18,7 +18,7 @@ window.onload = () => {
         ctx.clearRect(0, 0, 1020, 1024);
         ctx.beginPath();
         map.draw(ctx);
-        ctx.fillStyle = "blue";
+        ctx.fillStyle = "black";
         ctx.fillRect(doctor.docPosition.x, doctor.docPosition.y, doctor.docSize, doctor.docSize);
     })
 }

@@ -20,7 +20,7 @@ export class Doctor extends Actor implements IActor{
     doctorImg: HTMLImageElement;
     constructor(initPosition: {x: number, y: number}) {
         super(initPosition = { x: 0, y: 0 });
-        this.origin = {x: 0, y: 40};
+        this.origin = {x: 40, y: 40};
         this.docSize = 40;
         this.docPosition = { x: this.origin.x, y: this.origin.y };
         this.doctorImg = new Image();
@@ -71,7 +71,7 @@ export class Doctor extends Actor implements IActor{
 		let origin = this.origin;
 		let docSize = this.docSize;
         //let docImg = this.doctorImg;
-        ctx.fillStyle = "blue";
+        ctx.fillStyle = "black";
         ctx.fillRect(origin.x, origin.y, docSize, docSize);
         //ctx.drawImage(docImg, origin.x, origin.y, docSize, docSize, 2, 27, 8, 10);
     }
