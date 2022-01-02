@@ -77,12 +77,9 @@ export class Map extends Actor {
     }
 
     isCollision(a: number, b: number) {
-        console.log(a,b,this.matrix[b][a])
         if (this.matrix[b][a] === "W") {
-            console.log("Collision!");
             return true;
         } else {
-            console.log("Continue");
             return false;
         }
     } 

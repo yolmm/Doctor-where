@@ -1,4 +1,5 @@
 import { IActor } from "./actors/actor";
+import { Angel } from "./actors/angels";
 import { Doctor } from "./actors/doctor";
 import { Map } from "./actors/map";
 
@@ -7,9 +8,14 @@ window.onload = () => {
 	var ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
     let doctor = new Doctor({x: 40, y: 40});
-    let map = new Map({x: 130, y: 130})
+    let map = new Map({x: 130, y: 130});
+    let angel = new Angel({x: 0, y: 0});
 
-    let actors: Array<IActor> = [map, doctor];
+    let actors: Array<IActor> = [
+        map,
+        doctor,
+        angel
+    ];
 
     actors.forEach( (e) => e.draw(ctx));
 
