@@ -3,13 +3,11 @@ import { Map } from "./map";
 
 export class Angel extends Actor {
     angelSize: number;
-    canvasSize: {width: number, height: number};
     newPosition: {x: number, y: number};
     color: string;
     constructor(initPosition: {x: number, y: number}, color: string) {
         super(initPosition);
         this.angelSize = 40;
-        this.canvasSize = {width: 1020, height: 1024};
         this.color = color;
         this.newPosition= { x: initPosition.x, y: initPosition.y};
     }
@@ -57,7 +55,11 @@ export class Angel extends Actor {
         }
     }
 
-    draw(ctx: CanvasRenderingContext2D) {
+    getPos() {
+        return this.newPosition;
+    }
+
+    draw(ctx: CanvasRenderingContext2D, delta: number) {
         let angelSize = this.angelSize;
         let position = this.newPosition;
         ctx.fillStyle = this.color;

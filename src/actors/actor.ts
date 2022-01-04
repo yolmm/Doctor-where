@@ -2,6 +2,7 @@ export interface IActor {
 	position: {x: number, y: number};
 	update: (delta?: number) => void;
 	keyboard_event?: (key: string) => void;
+	getPos?: () => {x: number, y: number};
 	draw: (ctx: CanvasRenderingContext2D, delta?: number) => void;
 }
 
