@@ -49,6 +49,9 @@ export class Map extends Actor {
         this.matrix = labyrinth.match(/.{1,26}/g).map((e) => e.split(""));
     }
 
+    update() {};
+    keyboard_event() {};
+
     draw(ctx: CanvasRenderingContext2D) {
         this.matrix.forEach((e, y) => {
             this.origin.y = y;
