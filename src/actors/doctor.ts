@@ -13,18 +13,18 @@ type position = {
 }
 
 export class Doctor extends Actor implements IActor{
-    origin: {x: number, y: number};
     docSize: number;
     docPosition: {x: number, y: number};
     doctorImg: HTMLImageElement;
+    newDocPosition: {x: number, y: number};
     color: string;
     constructor(initPosition: {x: number, y: number}, color: string) {
         super(initPosition);
-        this.origin = {x: 40, y: 40};
         this.docSize = 40;
-        this.docPosition = { x: this.origin.x, y: this.origin.y };
+        this.docPosition = {x: 40, y: 40};
         this.doctorImg = new Image();
         this.color = color;
+        this.newDocPosition = {x: initPosition.x, y: initPosition.y};
         //this.doctorImg.src = doctorSprites;
     }
 
@@ -32,50 +32,52 @@ export class Doctor extends Actor implements IActor{
 
     keyboard_event(key) {
         let map = new Map ({x: 0, y: 0});
-        let newDocPosition: {x: number, y: number};
         let a: number, b: number;
+        let newDocPosition = this.newDocPosition;
+        let docPosition = this.docPosition;
+        let docSize = this.docSize;
         switch (key) {
             case `ArrowRight`:
-                newDocPosition = { x: (this.docPosition.x + this.docSize), y: this.docPosition.y };
-                a = newDocPosition.x/this.docSize;
-                b = newDocPosition.y/this.docSize;
+                newDocPosition = { x: (docPosition.x + docSize), y: docPosition.y };
+                a = newDocPosition.x/docSize;
+                b = newDocPosition.y/docSize;
                 if (!map.isCollision(a, b)) {
-                    this.docPosition.x += this.docSize;
+                    docPosition.x += docSize;
                 }
                 break;
             case `ArrowLeft`:
-                newDocPosition = { x: (this.docPosition.x - this.docSize), y: this.docPosition.y };
-                a = newDocPosition.x/this.docSize;
-                b = newDocPosition.y/this.docSize;
+                newDocPosition = { x: (docPosition.x - docSize), y: docPosition.y };
+                a = newDocPosition.x/docSize;
+                b = newDocPosition.y/docSize;
                 if (!map.isCollision(a, b)) {
-                    this.docPosition.x -= this.docSize;
+                    docPosition.x -= docSize;
                 }
                 break;
             case `ArrowDown`:
-                newDocPosition = { x: this.docPosition.x, y: (this.docPosition.y + this.docSize) };
-                a = newDocPosition.x/this.docSize;
-                b = newDocPosition.y/this.docSize;
+                newDocPosition = { x: docPosition.x, y: (docPosition.y + docSize) };
+                a = newDocPosition.x/docSize;
+                b = newDocPosition.y/docSize;
                 if (!map.isCollision(a, b)) {
-                    this.docPosition.y += this.docSize;
+                    docPosition.y += docSize;
                 }
                 break;
             case `ArrowUp`:
-                newDocPosition = { x: this.docPosition.x, y: (this.docPosition.y - this.docSize) };
-                a = newDocPosition.x/this.docSize;
-                b = newDocPosition.y/this.docSize;
+                newDocPosition = { x: docPosition.x, y: (docPosition.y - docSize) };
+                a = newDocPosition.x/docSize;
+                b = newDocPosition.y/docSize;
                 if (!map.isCollision(a, b)) {
-                    this.docPosition.y -= this.docSize;
+                    docPosition.y -= docSize;
                 }
                 break;
         }
     }
 
     draw(ctx: CanvasRenderingContext2D) {
-		let origin = this.origin;
+		let newDocPosition = this.newDocPosition;
 		let docSize = this.docSize;
         //let docImg = this.doctorImg;
         ctx.fillStyle = this.color;
-        ctx.fillRect(origin.x, origin.y, docSize, docSize);
+        ctx.fillRect(newDocPosition.x, newDocPosition.y, docSize, docSize);
         //ctx.drawImage(docImg, origin.x, origin.y, docSize, docSize, 2, 27, 8, 10);
     }
 }
