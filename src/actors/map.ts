@@ -1,4 +1,6 @@
 import { Actor } from "./actor";
+import wall_frame from "../../public/img/map-frames/wall-frame.png";
+import path_frame from "../../public/img/map-frames/floor.png";
 
 let labyrinth = `
 WWWWWWWWWWWWWWWWWWWWWWWWWW
@@ -24,8 +26,8 @@ W.....W.W.WWWW.W.WWWW..W.W
 W.W.W.W.W......W....WWWW.W
 W.W.W.W.WWWWWWWWWWW...W..W
 W.W.W...W......W..W.W.WWWW
-W.W.WWWWW.WWWWWW.WW.W.WTTW
-W.W..............W..W.tTTW
+W.W.WWWWW.WWWWWW.WW.W.W..W
+W.W..............W..W..t.W
 WWWWWWWWWWWWWWWWWWWWWWWWWW
 `;
 
@@ -36,6 +38,8 @@ export class Map extends Actor {
     origin: { x: number, y: number };
     coords: { x: number, y: number };
     matrix: Array<Array<string>>;
+    wallImg: HTMLImageElement;
+    pathImg: HTMLImageElement;
     constructor(initPosition: { x: number, y: number }) {
         super(initPosition = { x: 0, y: 0 });
         this.canvasSize = { width: 1020, height: 1024 };
@@ -47,6 +51,10 @@ export class Map extends Actor {
         this.origin = { x: 0, y: 0 };
         this.coords;
         this.matrix = labyrinth.match(/.{1,26}/g).map((e) => e.split(""));
+        this.wallImg = new Image();
+        this.wallImg.src = wall_frame;
+        this.pathImg = new Image();
+        this.pathImg.src = path_frame;
     }
 
     update() { };
@@ -60,24 +68,13 @@ export class Map extends Actor {
                 this.coords = { x: (this.origin.x * this.blockSize), y: (this.origin.y * this.blockSize) }
                 switch (element) {
                     case "W": //Wall
-                        ctx.strokeStyle = "red";
-                        ctx.fillStyle = "red";
-                        ctx.fillRect(this.coords.x, this.coords.y, this.blockSize, this.blockSize);
+                        ctx.drawImage(this.wallImg, this.coords.x, this.coords.y, this.blockSize, this.blockSize);
                         break;
                     case ".": //Path
-                        ctx.strokeStyle = "green";
-                        ctx.fillStyle = "green";
-                        ctx.fillRect(x * this.blockSize, y * this.blockSize, this.blockSize, this.blockSize);
+                        ctx.drawImage(this.pathImg, this.coords.x, this.coords.y, this.blockSize, this.blockSize);
                         break;
                     case "t": //Path
-                        ctx.strokeStyle = "green";
-                        ctx.fillStyle = "green";
-                        ctx.fillRect(x * this.blockSize, y * this.blockSize, this.blockSize, this.blockSize);
-                        break;
-                    case "T": //TARDIS
-                        ctx.strokeStyle = "blue";
-                        ctx.fillStyle = "blue";
-                        ctx.fillRect(x * this.blockSize, y * this.blockSize, this.blockSize, this.blockSize);
+                    ctx.drawImage(this.pathImg, this.coords.x, this.coords.y, this.blockSize, this.blockSize);
                         break;
                 }
             })

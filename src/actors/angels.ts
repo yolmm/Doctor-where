@@ -1,20 +1,22 @@
 import { Actor } from "./actor";
 import { Map } from "./map";
+import angelSprites from "../../public/img/weaping-angel-sprite.png";
 
 export class Angel extends Actor {
     angelSize: number;
     newPosition: {x: number, y: number};
-    color: string;
-    constructor(initPosition: {x: number, y: number}, color: string) {
+    angelImg: HTMLImageElement;
+    constructor(initPosition: {x: number, y: number}) {
         super(initPosition);
         this.angelSize = 40;
-        this.color = color;
         this.newPosition= { x: initPosition.x, y: initPosition.y};
+        this.angelImg = new Image();
+        this.angelImg.src = angelSprites;
     }
 
     update() {};
 
-    keyboard_event(key) {
+    keyboard_event(key: string) {
         let map = new Map ({x: 0, y: 0});
         let a: number, b: number;
         let position = this.newPosition;
@@ -62,8 +64,8 @@ export class Angel extends Actor {
     draw(ctx: CanvasRenderingContext2D, delta: number) {
         let angelSize = this.angelSize;
         let position = this.newPosition;
-        ctx.fillStyle = this.color;
-        ctx.fillRect(position.x, position.y, angelSize, angelSize);
+        let angelImg = this.angelImg;
+        ctx.drawImage(angelImg, 140, 140, 40, 60, position.x, position.y, angelSize, angelSize);
     }
 
 }

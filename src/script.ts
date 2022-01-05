@@ -3,19 +3,22 @@ import { Angel } from "./actors/angels";
 import { Doctor } from "./actors/doctor";
 import { Map } from "./actors/map";
 import { FPSViewer } from "./actors/FPSViewer";
+import { Tardis } from "./actors/tardis";
 
 window.onload = () => {
     var canvas = document.getElementById("canvas") as HTMLCanvasElement;
 	var ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
-    let doctor = new Doctor({x: 40, y: 40}, "black");
+    let doctor = new Doctor({x: 40, y: 40});
     let map = new Map({x: 0, y: 0});
     let fps = new FPSViewer ({x: 10, y: 20});
+    let tardis = new Tardis ({x: 960, y: 920});
 
     let actors: Array<IActor> = [
         map,
         fps,
         doctor,
+        tardis,
         new Angel({x: 120, y: 360}, "gray"),
         new Angel({x: 480, y: 240}, "brown"),
         new Angel({x: 200, y: 880}, "aqua"),
@@ -47,7 +50,7 @@ window.onload = () => {
 			ctx.restore();
 		});
         if (trapped()) {
-            doctor = new Doctor({x: 40, y: 40}, "black");
+            doctor = new Doctor({x: 40, y: 40});
             actors[2] = doctor;
         }
 		window.requestAnimationFrame(render);

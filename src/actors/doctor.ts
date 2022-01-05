@@ -1,24 +1,22 @@
 import { Actor } from "./actor";
-//import doctorSprites from "../../public/img/doctor_sprites.png";
 import { Map } from "./map";
+import doctorSprites from "../../public/img/doctor_sprites.png";
 
 export class Doctor extends Actor{
     docSize: number;
     doctorImg: HTMLImageElement;
     newDocPosition: {x: number, y: number};
-    color: string;
-    constructor(initPosition: {x: number, y: number}, color: string) {
+    constructor(initPosition: {x: number, y: number}) {
         super(initPosition);
         this.docSize = 40;
-        //this.doctorImg = new Image();
-        this.color = color;
         this.newDocPosition = {x: initPosition.x, y: initPosition.y};
-        //this.doctorImg.src = doctorSprites;
+        this.doctorImg = new Image();
+        this.doctorImg.src = doctorSprites;
     }
 
     update() {};
 
-    keyboard_event(key) {
+    keyboard_event(key: string) {
         let map = new Map ({x: 0, y: 0});
         let a: number, b: number;
         let docPosition = this.newDocPosition;
@@ -70,9 +68,7 @@ export class Doctor extends Actor{
     draw(ctx: CanvasRenderingContext2D, delta: number) {
         let docSize = this.docSize;
 		let newDocPosition = this.newDocPosition;
-        //let docImg = this.doctorImg;
-        ctx.fillStyle = this.color;
-        ctx.fillRect(newDocPosition.x, newDocPosition.y, docSize, docSize);
-        //ctx.drawImage(docImg, origin.x, origin.y, docSize, docSize, 2, 27, 8, 10);
+        let docImg = this.doctorImg;
+        ctx.drawImage(docImg, 5, 1225, 40, 60, newDocPosition.x, newDocPosition.y, docSize, docSize);
     }
 }
