@@ -38,6 +38,20 @@ window.onload = () => {
         return false;
     }
 
+    const winning = async () => {
+        if ((doctor.getPos().x == tardis.origin.x) && (doctor.getPos().y == (tardis.origin.y + 40))) {
+            const index = actors.indexOf(doctor);
+            if (index > -1) {
+                actors.splice(index, 1);
+                for (let i = 0; i < tardis.tardisEndImg.length; i++) {
+                    tardis.setImg(tardis.tardisEndImg[i]);
+                    tardis.draw(ctx);
+                    await new Promise (e => setTimeout(e, 500));
+                }
+            }
+        }
+    }
+
     let lastFrame = 0;
 	const render = (time: number) => {
 		let delta = (time - lastFrame) / 1000;
@@ -53,6 +67,7 @@ window.onload = () => {
             doctor = new Doctor({x: 40, y: 40});
             actors[2] = doctor;
         }
+        winning();
 		window.requestAnimationFrame(render);
 	};
 

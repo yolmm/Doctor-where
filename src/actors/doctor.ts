@@ -38,10 +38,6 @@ export class Doctor extends Actor {
         let a: number, b: number;
         let docPosition = this.newDocPosition;
         let docSize = this.docSize;
-        if (map.winning(this.newDocPosition.x / docSize, this.newDocPosition.y / docSize)) {
-            window.alert("You won!");
-            return;
-        }
         switch (key) {
             case `ArrowRight`:
                 docPosition = { x: (docPosition.x + docSize), y: docPosition.y };

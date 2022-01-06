@@ -27,7 +27,7 @@ W.W.W.W.W......W....WWWW.W
 W.W.W.W.WWWWWWWWWWW...W..W
 W.W.W...W......W..W.W.WWWW
 W.W.WWWWW.WWWWWW.WW.W.W..W
-W.W..............W..W..t.W
+W.W..............W..W....W
 WWWWWWWWWWWWWWWWWWWWWWWWWW
 `;
 
@@ -73,9 +73,6 @@ export class Map extends Actor {
                     case ".": //Path
                         ctx.drawImage(this.pathImg, this.coords.x, this.coords.y, this.blockSize, this.blockSize);
                         break;
-                    case "t": //Path
-                    ctx.drawImage(this.pathImg, this.coords.x, this.coords.y, this.blockSize, this.blockSize);
-                        break;
                 }
             })
         })
@@ -83,14 +80,6 @@ export class Map extends Actor {
 
     isCollision(a: number, b: number) {
         if (this.matrix[b][a] === "W") {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    winning(a: number, b: number) {
-        if (this.matrix[b][a] === "t") {
             return true;
         } else {
             return false;
