@@ -137,7 +137,7 @@ export class Doctor extends Actor {
     draw(ctx: CanvasRenderingContext2D, delta: number) {
         let docSize = this.docSize;
         let newDocPosition = this.newDocPosition;
-        const docRightFrames = [
+        const docFrames = [
             { src_origin: { x: 10, y: 0 }, size: { x: 40, y: 60 } },
             { src_origin: { x: 75, y: 0 }, size: { x: 40, y: 60 } },
             { src_origin: { x: 140, y: 0 }, size: { x: 40, y: 60 } },
@@ -148,7 +148,7 @@ export class Doctor extends Actor {
             { src_origin: { x: 460, y: 0 }, size: { x: 40, y: 60 } },
             { src_origin: { x: 525, y: 0 }, size: { x: 40, y: 60 } },
         ]
-        this.currentFrames = docRightFrames;
+        this.currentFrames = docFrames;
         let i = Math.floor(this.frameCount * 10);
         let frame = this.currentFrames[i % this.currentFrames.length];
         ctx.drawImage(this.currentImg, frame.src_origin.x, frame.src_origin.y, frame.size.x, frame.size.y, newDocPosition.x, newDocPosition.y, docSize, docSize);
