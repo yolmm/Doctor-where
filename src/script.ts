@@ -19,12 +19,12 @@ window.onload = () => {
         fps,
         doctor,
         tardis,
-        new Angel({x: 120, y: 360}, "gray"),
-        new Angel({x: 480, y: 240}, "brown"),
-        new Angel({x: 200, y: 880}, "aqua"),
-        new Angel({x: 800, y: 240}, "yellow"),
-        new Angel({x: 560, y: 800}, "purple"),
-        new Angel({x: 880, y: 680}, "white"),
+        new Angel({x: 120, y: 360}),
+        new Angel({x: 480, y: 240}),
+        new Angel({x: 200, y: 880}),
+        new Angel({x: 800, y: 240}),
+        new Angel({x: 560, y: 800}),
+        new Angel({x: 880, y: 680}),
     ];
 
     const trapped = () => {

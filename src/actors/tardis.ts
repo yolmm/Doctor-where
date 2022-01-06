@@ -1,5 +1,5 @@
 import { Actor } from "./actor";
-import tardis_frame from "../../public/img/tardis-frame.png";
+import tardis_frame from "../../public/img/tardis.png";
 
 
 export class Tardis extends Actor {
@@ -17,7 +17,7 @@ export class Tardis extends Actor {
     update () {}
     keyboard_event(key) {}
 
-    draw(ctx: CanvasRenderingContext2D) {
+    draw(ctx: CanvasRenderingContext2D, delta: number) {
         ctx.drawImage(this.tardisImg, this.tardisOrigin.x, this.tardisOrigin.y, this.tardisSize.x, this.tardisSize.y);
     }
 }

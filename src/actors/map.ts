@@ -60,7 +60,7 @@ export class Map extends Actor {
     update() { };
     keyboard_event() { };
 
-    draw(ctx: CanvasRenderingContext2D) {
+    draw(ctx: CanvasRenderingContext2D, delta: number) {
         this.matrix.forEach((e, y) => {
             this.origin.y = y;
             let mapArray = e.forEach((element, x) => {
