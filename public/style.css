@@ -4,7 +4,8 @@ body{
     margin:0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 10px;
     background-image: url(/public/img/background-img.png);
     background-size:cover;
     background-repeat: no-repeat;
@@ -13,4 +14,15 @@ body{
 
 canvas{
     border: 1px solid #083221;
+    margin-right: 17rem;
+}
+
+.instructions {
+    margin-left: 5rem;
+    margin-right: 2rem;
+    color: silver;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    display: flex;
+    flex-flow: column wrap;
 }

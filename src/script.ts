@@ -4,6 +4,7 @@ import { Doctor } from "./actors/doctor";
 import { Map } from "./actors/map";
 import { FPSViewer } from "./actors/FPSViewer";
 import { Tardis } from "./actors/tardis";
+import { Tool } from "./actors/doctools";
 
 window.onload = () => {
     var canvas = document.getElementById("canvas") as HTMLCanvasElement;
@@ -19,6 +20,9 @@ window.onload = () => {
         fps,
         doctor,
         tardis,
+        new Tool({x: 400, y: 160}, "screwdriver"),
+        new Tool({x: 240, y: 320}, "banana"),
+        new Tool({x: 680, y: 880}, "spoon"),
         new Angel({x: 120, y: 360}),
         new Angel({x: 480, y: 240}),
         new Angel({x: 200, y: 880}),
