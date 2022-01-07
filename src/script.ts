@@ -14,15 +14,18 @@ window.onload = () => {
     let map = new Map({x: 0, y: 0});
     let fps = new FPSViewer ({x: 10, y: 20});
     let tardis = new Tardis ({x: 960, y: 920});
+    let screwdriver = new Tool({x: 400, y: 160}, "screwdriver");
+    let banana = new Tool({x: 240, y: 320}, "banana");
+    let spoon = new Tool({x: 520, y: 560}, "spoon");
 
     let actors: Array<IActor> = [
         map,
         fps,
         doctor,
         tardis,
-        new Tool({x: 400, y: 160}, "screwdriver"),
-        new Tool({x: 240, y: 320}, "banana"),
-        new Tool({x: 680, y: 880}, "spoon"),
+        screwdriver,
+        banana,
+        spoon,
         new Angel({x: 120, y: 360}),
         new Angel({x: 480, y: 240}),
         new Angel({x: 200, y: 880}),
@@ -32,14 +35,32 @@ window.onload = () => {
     ];
 
     const trapped = () => {
-        for (let i = 0; i < actors.length; i++) {
-            if (actors[i] instanceof Angel) {
-                if ((actors[i].getPos().x == doctor.getPos().x) && (actors[i].getPos().y == doctor.getPos().y)) {
-                    return true;
+        if ((screwdriver.getPos().y == 0) && (banana.getPos().y == 0) && (spoon.getPos().y == 0)){
+            return false;
+        } else {
+            for (let i = 0; i < actors.length; i++) {
+                if (actors[i] instanceof Angel) {
+                    if ((actors[i].getPos().x == doctor.getPos().x) && (actors[i].getPos().y == doctor.getPos().y)) {
+                        return true;
+                    }
                 }
             }
         }
-        return false;
+    }
+
+    const getTools = () => {
+        if ((screwdriver.getPos().x == doctor.getPos().x) && (screwdriver.getPos().y == doctor.getPos().y)) {
+            screwdriver = new Tool({x: 120, y: 0}, "screwdriver");
+            return actors[4] = screwdriver;
+        }
+        if ((banana.getPos().x == doctor.getPos().x) && (banana.getPos().y == doctor.getPos().y)) {
+            banana = new Tool({x: 160, y: 0}, "banana");
+            return actors[5] = banana;
+        }
+        if ((spoon.getPos().x == doctor.getPos().x) && (spoon.getPos().y == doctor.getPos().y)) {
+            spoon = new Tool({x: 200, y: 0}, "spoon");
+            return actors[6] = spoon;
+        }
     }
 
     const winning = async () => {
@@ -67,6 +88,7 @@ window.onload = () => {
 			e.draw(ctx, delta);
 			ctx.restore();
 		});
+        getTools();
         if (trapped()) {
             doctor = new Doctor({x: 40, y: 40});
             actors[2] = doctor;
