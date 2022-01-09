@@ -20,5 +20,5 @@ jobs:
         uses: faablecloud/action-deploy-gh-pages@main
         with:
           dir: docs
-          branch: gh-pages
+          branch: gh-pages-test
           token: ${{ secrets.GITHUB_TOKEN }}
