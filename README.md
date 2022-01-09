@@ -6,16 +6,13 @@
 
 <!-- vscode-markdown-toc -->
  1. [ Introduction](#Introduction)
- 2. [ Installation manual fd](#Installationmanualfd)
+ 2. [ Installation manual](#Installationmanual)
  3. [ Context and instructions](#Contextandinstructions)
  4. [ Packages and dependencies](#Packagesanddependencies)
  5. [ Structure](#Structure)
-
-	 5.1. [Images and videos](#Imagesandvideos)
-
-	 5.2. [Code examples](#Codeexamples)
  6. [ Documentation](#Documentation)
- 7. [ License](#License)
+ 7. [ Acknowledgements](#Acknowledgements)
+ 8. [ License](#License)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -30,7 +27,7 @@ This is my first project for [CORE Code School](https://www.corecode.school/).
 
 You can play it [here](https://yolmm.github.io/Doctor-where/).
 
-##  2. <a name='Installationmanualfd'></a> Installation manual
+##  2. <a name='Installationmanual'></a> Installation manual
 
 ```bash
 #Clone the repository:
@@ -73,61 +70,64 @@ It looks like The Doctor is in the middle of a labyrinth and the TARDIS is outsi
 
 ##  5. <a name='Structure'></a> Structure
 
-###  5.1. <a name='Imagesandvideos'></a>Images and videos
+The first map I created was in a sheet with pens, a pencil and a rubber:  
 
-
-
-###  5.2. <a name='Codeexamples'></a>Code examples
-
-The first map I created was in a sheet with pens, a pencil and a rubber:
-
-![first map](public/img/readme-imgs/first-map.jpg)
+![first map](public/img/readme-imgs/first-map.jpg)  
  
-Once I had it, I created an string in the map file, where the 'W' is a wall and the '.' is the path:
+Once I had it, I created an string in the map file, where the 'W' is a wall and the '.' is the path:  
 
-![map string](public/img/readme-imgs/map-string.png)
+![map string](public/img/readme-imgs/map-string.png)  
 
-Then, I was able to operate with it, for what I used a for loop inside a for loop to create a grid that I would use later for actors' movements:
+Then, I was able to operate with it, for what I used a for loop inside a for loop to create a grid that I would use later for actors' movements:  
 
-![map's for loops](public/img/readme-imgs/map-forloops.png)
+![map's for loops](public/img/readme-imgs/map-forloops.png)  
 
-This was the first result (red for walls, green for paths, black for The Doctor and blue for the TARDIS):
+This was the first result (red for walls, green for paths, black for The Doctor and blue for the TARDIS):  
 
-![second map](public/img/readme-imgs/second-map.png)
+![second map](public/img/readme-imgs/second-map.png)  
 
-For The Doctor's movement, I used a function with a switch statement, where it calls another function that check if next step is a wall or no (if it is a wall, the actor won't move). An example of movement function:
+For The Doctor's movement, I used a function with a switch statement, where it calls another function that check if next step is a wall or no (if it is a wall, the actor won't move). An example of movement function:  
 
-![Doctor's movement](public/img/readme-imgs/doctor-movement.png)
+![Doctor's movement](public/img/readme-imgs/doctor-movement.png)  
 
-And the code of the collision function:
+And the code of the collision function:  
 
-![collision function](public/img/readme-imgs/collision-function.png)
+![collision function](public/img/readme-imgs/collision-function.png)  
 
 Once I have the first actor created, for the Weeping Angels, I just had to copy most part of the code. Actually, the angels' movement is the same as The Doctor's, but with exchanged movement:
 - When arrow right key is pressed, The Doctor moves one position to the right and the angels move one position to the left.
 - For arrow left key, The Doctor moves one position to the left while the angels move one position up.
 - For arrow down key, The Doctor moves one position down and the angels move one position to the right.
-- And when arrow up key is pressed, The Doctor moves one position up while the angels move one position down.
+- And when arrow up key is pressed, The Doctor moves one position up while the angels move one position down.  
 
-![Angels' movement](public/img/readme-imgs/angels-movement.png)
+![Angels' movement](public/img/readme-imgs/angels-movement.png)  
 
-After create the Weeping Angels, I wanted them to interact with The Doctor. in order to get that, I used a function that checks The Doctor's position and the angels' position. If their position is the same, this function create a new Doctor with the initial position and replace The Doctor in the actors' array:
+After create the Weeping Angels, I wanted them to interact with The Doctor. in order to get that, I used a function that checks The Doctor's position and the angels' position. If their position is the same, this function create a new Doctor with the initial position and replace The Doctor in the actors' array:  
 
-![Angels and Doctor's position](public/img/readme-imgs/trapped-function.png)
+![Angels and Doctor's position](public/img/readme-imgs/trapped-function.png)  
+![new Doctor](public/img/readme-imgs/trapped-calling.png)  
+![TARDIS vanishing](public/gifs/trapped.gif)  
 
-When all the basic functionallity was ready, I started with characters' images. It was easy for the angels, as they are statues, so it was changing one single image for another. However, for The Doctor, I had to create an array to get the frames and use the draw function to iterate that array using the frames per seconds of the game.
+When all the basic functionallity was ready, I started with characters' images. It was easy for the angels, as they are statues, so it was changing one single image for another. However, for The Doctor, I had to create an array to get the frames and use the draw function to iterate that array using the frames per seconds of the game.  
 
-![Doctor's frames array](public/img/readme-imgs/doc-img-array.png)
-![Doctor's draw function](public/img/readme-imgs/doc-draw.png)
-![Third map](public/img/readme-imgs/third-map.png)
+![Doctor's frames array](public/img/readme-imgs/doc-img-array.png)  
+![Doctor's draw function](public/img/readme-imgs/doc-draw.png)  
+![Third map](public/img/readme-imgs/third-map.png)  
 
-Then, I created a new actor as the TARDIS and a new function to win; when The Doctor arrive to the TARDIS position, the actor that represent The Doctor is remove from actors' array and the TARDIS image change to another with 10% more of transparency. The last image is transparent, so it looks like the TARDIS has vanish with The Doctor inside it.
+Then, I created a new actor as the TARDIS and a new function to win; when The Doctor arrive to the TARDIS position, the actor that represent The Doctor is remove from actors' array and the TARDIS image change to another with 10% more of transparency. The last image is transparent, so it looks like the TARDIS has vanish with The Doctor inside it.  
 
-![Winning function](public/img/readme-imgs/winning-function.png)
-![TARDIS draw function](public/img/readme-imgs/tardis-draw.png)
-![TARDIS end array](public/img/readme-imgs/tardis-end-array.png)
+![Winning function](public/img/readme-imgs/winning-function.png)  
+![TARDIS draw function](public/img/readme-imgs/tardis-draw.png)  
+![TARDIS end array](public/img/readme-imgs/tardis-end-array.png)  
+![TARDIS vanishing](public/gifs/tardisvanishing.gif)  
 
-Finally, I added three objects 
+Finally, I added three objects. The player can still win ignoring those objects, but if the player pick them all (it will appear at the top of the canvas when The Doctor arrive to its position), the angels won't send The Doctor back to the beginning:  
+
+![TARDIS end array](public/img/readme-imgs/get-tools.png)  
+![TARDIS end array](public/img/readme-imgs/trapped-func-complete.png)  
+![TARDIS vanishing](public/gifs/gettingtool.gif)  
+![TARDIS vanishing](public/gifs/ignoringangels.gif)  
+
 
 ##  6. <a name='Documentation'></a> Documentation
 
@@ -135,10 +135,21 @@ Doctor Who [info](https://en.wikipedia.org/wiki/Doctor_Who)
 
 To create the main characters: [sprite sheet generator](https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/#?body=Humanlike_white)
 
-[Canvas docs](https://developer.mozilla.org/es/docs/Web/API/CanvasRenderingContext2D)
+Canvas [docs](https://developer.mozilla.org/es/docs/Web/API/CanvasRenderingContext2D)
 
 Background [music](https://www.youtube.com/watch?v=K7VmOZ4Ppj8)
 
 Background [image](https://asset-manager.bbcchannels.com/workspace/uploads/brandedangel-alicexzhang-1920x1080-56d470f1.png)
 
-##  7. <a name='License'></a> License
+##  7. <a name='Acknowledgements'></a> Acknowledgements
+
+To my father for affording me this oportunity.
+
+To my husbund (@jesmg) for supporting me, helping me and for giving me the name idea.
+
+To my teachers, Marcos, Marc and Álvaro, for all the knowledge and the help given during the course.
+
+##  8. <a name='License'></a> License
+
+![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)  
+This work is licensed under [a Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
