@@ -15,6 +15,7 @@ export class Doctor extends Actor {
     currentImg: HTMLImageElement;
     currentFrames: Array<{src_origin: { x: number, y: number }, size: { x: number, y: number } }>; 
     frameCount: number;
+    docFrames: Array<{src_origin: { x: number, y: number }, size: { x: number, y: number } }>;
     constructor(initPosition: { x: number, y: number }) {
         super(initPosition);
         this.docSize = 40;
@@ -29,6 +30,17 @@ export class Doctor extends Actor {
         this.docUpImg.src = docUp;
         this.frameCount = 0;
         this.currentImg = this.docRightImg;
+        this.docFrames = [
+            { src_origin: { x: 10, y: 0 }, size: { x: 40, y: 60 } },
+            { src_origin: { x: 75, y: 0 }, size: { x: 40, y: 60 } },
+            { src_origin: { x: 140, y: 0 }, size: { x: 40, y: 60 } },
+            { src_origin: { x: 205, y: 0 }, size: { x: 40, y: 60 } },
+            { src_origin: { x: 265, y: 0 }, size: { x: 40, y: 60 } },
+            { src_origin: { x: 330, y: 0 }, size: { x: 40, y: 60 } },
+            { src_origin: { x: 395, y: 0 }, size: { x: 40, y: 60 } },
+            { src_origin: { x: 460, y: 0 }, size: { x: 40, y: 60 } },
+            { src_origin: { x: 525, y: 0 }, size: { x: 40, y: 60 } },
+        ]
     }
 
     update() { };
@@ -46,18 +58,7 @@ export class Doctor extends Actor {
                 if (!map.isCollision(a, b)) {
                     this.newDocPosition.x += docSize;
                 }
-                const docRightFrames = [
-                    { src_origin: { x: 10, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 75, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 140, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 205, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 265, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 330, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 395, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 460, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 525, y: 0 }, size: { x: 40, y: 60 } },
-                ]
-                this.currentFrames = docRightFrames;
+                this.currentFrames = this.docFrames;
                 this.currentImg = this.docRightImg;
                 break;
             case `ArrowLeft`:
@@ -67,18 +68,7 @@ export class Doctor extends Actor {
                 if (!map.isCollision(a, b)) {
                     this.newDocPosition.x -= docSize;
                 }
-                const docLeftFrames = [
-                    { src_origin: { x: 10, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 75, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 140, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 205, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 265, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 330, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 395, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 460, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 525, y: 0 }, size: { x: 40, y: 60 } },
-                ]
-                this.currentFrames = docLeftFrames;
+                this.currentFrames = this.docFrames;
                 this.currentImg = this.docLeftImg;
                 break;
             case `ArrowDown`:
@@ -88,18 +78,7 @@ export class Doctor extends Actor {
                 if (!map.isCollision(a, b)) {
                     this.newDocPosition.y += docSize;
                 }
-                const docDownFrames = [
-                    { src_origin: { x: 10, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 75, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 140, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 205, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 265, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 330, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 395, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 460, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 525, y: 0 }, size: { x: 40, y: 60 } },
-                ]
-                this.currentFrames = docDownFrames;
+                this.currentFrames = this.docFrames;
                 this.currentImg = this.docDownImg;
                 break;
             case `ArrowUp`:
@@ -109,18 +88,7 @@ export class Doctor extends Actor {
                 if (!map.isCollision(a, b)) {
                     this.newDocPosition.y -= docSize;
                 }
-                const docUpFrames = [
-                    { src_origin: { x: 10, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 75, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 140, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 205, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 265, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 330, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 395, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 460, y: 0 }, size: { x: 40, y: 60 } },
-                    { src_origin: { x: 525, y: 0 }, size: { x: 40, y: 60 } },
-                ]
-                this.currentFrames = docUpFrames;
+                this.currentFrames = this.docFrames;
                 this.currentImg = this.docUpImg;
                 break;
         }
@@ -133,18 +101,7 @@ export class Doctor extends Actor {
     draw(ctx: CanvasRenderingContext2D, delta: number) {
         let docSize = this.docSize;
         let newDocPosition = this.newDocPosition;
-        const docFrames = [
-            { src_origin: { x: 10, y: 0 }, size: { x: 40, y: 60 } },
-            { src_origin: { x: 75, y: 0 }, size: { x: 40, y: 60 } },
-            { src_origin: { x: 140, y: 0 }, size: { x: 40, y: 60 } },
-            { src_origin: { x: 205, y: 0 }, size: { x: 40, y: 60 } },
-            { src_origin: { x: 265, y: 0 }, size: { x: 40, y: 60 } },
-            { src_origin: { x: 330, y: 0 }, size: { x: 40, y: 60 } },
-            { src_origin: { x: 395, y: 0 }, size: { x: 40, y: 60 } },
-            { src_origin: { x: 460, y: 0 }, size: { x: 40, y: 60 } },
-            { src_origin: { x: 525, y: 0 }, size: { x: 40, y: 60 } },
-        ]
-        this.currentFrames = docFrames;
+        this.currentFrames = this.docFrames;
         let i = Math.floor(this.frameCount * 10);
         let frame = this.currentFrames[i % this.currentFrames.length];
         ctx.drawImage(this.currentImg, frame.src_origin.x, frame.src_origin.y, frame.size.x, frame.size.y, newDocPosition.x, newDocPosition.y, docSize, docSize);
