@@ -123,10 +123,10 @@ Then, I created a new actor as the TARDIS and a new function to win; when The Do
 
 Finally, I added three objects. The player can still win ignoring those objects, but if the player pick them all (it will appear at the top of the canvas when The Doctor arrive to its position), the angels won't send The Doctor back to the beginning:  
 
-![TARDIS end array](public/img/readme-imgs/get-tools.png)  
-![TARDIS end array](public/img/readme-imgs/trapped-func-complete.png)  
-![TARDIS vanishing](public/gifs/gettingtool.gif)  
-![TARDIS vanishing](public/gifs/ignoringangels.gif)  
+![Get tools function](public/img/readme-imgs/get-tools.png)  
+![Trapped function](public/img/readme-imgs/trapped-func-complete.png)  
+![Getting tools](public/gifs/gettingtool.gif)  
+![Ignoring angels](public/gifs/ignoringangels.gif)  
 
 
 ##  6. <a name='Documentation'></a> Documentation
